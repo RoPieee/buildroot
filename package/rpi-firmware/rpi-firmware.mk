@@ -32,14 +32,14 @@ define RPI_FIRMWARE_INSTALL_DTB_OVERLAYS
 endef
 endif
 
-ifeq ($(BR2_PACKAGE_RPI_FIRMWARE_INSTALL_VCDBG),y)
-define RPI_FIRMWARE_INSTALL_TARGET_CMDS
-	$(INSTALL) -D -m 0700 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/bin/vcdbg \
-		$(TARGET_DIR)/usr/sbin/vcdbg
-	$(INSTALL) -D -m 0644 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/lib/libelftoolchain.so \
-		$(TARGET_DIR)/usr/lib/libelftoolchain.so
-endef
-endif # INSTALL_VCDBG
+#ifeq ($(BR2_PACKAGE_RPI_FIRMWARE_INSTALL_VCDBG),y)
+#define RPI_FIRMWARE_INSTALL_TARGET_CMDS
+#	$(INSTALL) -D -m 0700 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/bin/vcdbg \
+#		$(TARGET_DIR)/usr/sbin/vcdbg
+#	$(INSTALL) -D -m 0644 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/lib/libelftoolchain.so \
+#		$(TARGET_DIR)/usr/lib/libelftoolchain.so
+#endef
+#endif # INSTALL_VCDBG
 
 ifeq ($(BR2_PACKAGE_RPI_FIRMWARE_VARIANT_PI),y)
 # bootcode.bin is not used on rpi4, because it has been replaced by boot code in the onboard EEPROM
@@ -47,6 +47,32 @@ define RPI_FIRMWARE_INSTALL_BOOTCODE_BIN
 	$(INSTALL) -D -m 0644 $(@D)/boot/bootcode.bin $(BINARIES_DIR)/rpi-firmware/bootcode.bin
 endef
 endif
+
+define RPI_FIRMWARE_INSTALL_OPT_VC
+	$(INSTALL) -D -m 0644 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/lib/libbcm_host.so \
+		$(TARGET_DIR)/opt/vc/lib/libbcm_host.so
+
+	$(INSTALL) -D -m 0644 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/lib/libelftoolchain.so \
+		$(TARGET_DIR)/opt/vc/lib/libelftoolchain.so
+
+	$(INSTALL) -D -m 0644 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/lib/libvcos.so \
+		$(TARGET_DIR)/opt/vc/lib/libvcos.so
+
+	$(INSTALL) -D -m 0644 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/lib/libvchiq_arm.so \
+		$(TARGET_DIR)/opt/vc/lib/libvchiq_arm.so
+
+	$(INSTALL) -D -m 0644 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/lib/libdebug_sym.so \
+		$(TARGET_DIR)/opt/vc/lib/libdebug_sym.so
+
+	$(INSTALL) -D -m 0700 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/bin/vcdbg \
+                $(TARGET_DIR)/opt/vc/bin/vcdbg
+
+	$(INSTALL) -D -m 0700 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/bin/tvservice \
+                $(TARGET_DIR)/opt/vc/bin/tvservice
+
+	$(INSTALL) -D -m 0700 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/bin/vcgencmd \
+                $(TARGET_DIR)/opt/vc/bin/vcgencmd
+endef
 
 define RPI_FIRMWARE_INSTALL_IMAGES_CMDS
 	$(INSTALL) -D -m 0644 package/rpi-firmware/config.txt $(BINARIES_DIR)/rpi-firmware/config.txt
@@ -56,6 +82,7 @@ define RPI_FIRMWARE_INSTALL_IMAGES_CMDS
 	$(RPI_FIRMWARE_INSTALL_BOOTCODE_BIN)
 	$(RPI_FIRMWARE_INSTALL_DTB)
 	$(RPI_FIRMWARE_INSTALL_DTB_OVERLAYS)
+	$(RPI_FIRMWARE_INSTALL_OPT_VC)
 endef
 
 $(eval $(generic-package))
