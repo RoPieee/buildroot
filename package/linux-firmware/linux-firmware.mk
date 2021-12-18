@@ -4,10 +4,10 @@
 #
 ################################################################################
 
-LINUX_FIRMWARE_VERSION = 20210919
-LINUX_FIRMWARE_SOURCE = linux-firmware-$(LINUX_FIRMWARE_VERSION).tar.xz
-LINUX_FIRMWARE_SITE = $(BR2_KERNEL_MIRROR)/linux/kernel/firmware
-LINUX_FIRMWARE_INSTALL_IMAGES = YES
+LINUX_FIRMWARE_VERSION = 20211027
+LINUX_FIRMWARE_SOURCE = linux-firmware-$(LINUX_FIRMWARE_VERSION).tar.gz
+LINUX_FIRMWARE_SITE = https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/snapshot
+LINUX_FIRMWARE_INSTALL_IMAGES = NO
 
 LINUX_FIRMWARE_CPE_ID_VENDOR = kernel
 
@@ -625,7 +625,9 @@ LINUX_FIRMWARE_FILES += \
 	brcm/brcmfmac4373.bin \
 	brcm/brcmfmac4330-sdio.Prowise-PT301.txt \
 	brcm/brcmfmac4356-pcie.gpd-win-pocket.txt \
-	brcm/brcmfmac4356-sdio.vamrs,rock960.txt
+	brcm/brcmfmac4356-sdio.vamrs,rock960.txt \
+	brcm/brcmfmac4366b-pcie.bin \
+	brcm/brcmfmac4366c-pcie.bin
 LINUX_FIRMWARE_ALL_LICENSE_FILES += LICENCE.broadcom_bcm43xx
 endif
 
@@ -654,7 +656,28 @@ LINUX_FIRMWARE_FILES += \
 	brcm/brcmfmac43430-sdio.MUR1DX.txt \
 	brcm/brcmfmac43430-sdio.raspberrypi,3-model-b.txt \
 	brcm/brcmfmac43455-sdio.raspberrypi,3-model-b-plus.txt \
-	brcm/brcmfmac43455-sdio.raspberrypi,4-model-b.txt
+	brcm/brcmfmac43455-sdio.raspberrypi,4-model-b.txt \
+	cypress/cyfmac43012-sdio.bin \
+	cypress/cyfmac43012-sdio.clm_blob \
+	cypress/cyfmac43340-sdio.bin \
+	cypress/cyfmac43362-sdio.bin \
+	cypress/cyfmac4339-sdio.bin \
+	cypress/cyfmac43430-sdio.bin \
+	cypress/cyfmac43430-sdio.clm_blob \
+	cypress/cyfmac43455-sdio.bin \
+	cypress/cyfmac43455-sdio.clm_blob \
+	cypress/cyfmac4354-sdio.bin \
+	cypress/cyfmac4354-sdio.clm_blob \
+	cypress/cyfmac4356-pcie.bin \
+	cypress/cyfmac4356-pcie.clm_blob \
+	cypress/cyfmac4356-sdio.bin \
+	cypress/cyfmac4356-sdio.clm_blob \
+	cypress/cyfmac43570-pcie.bin \
+	cypress/cyfmac43570-pcie.clm_blob \
+	cypress/cyfmac4373-sdio.bin \
+	cypress/cyfmac4373-sdio.clm_blob \
+	cypress/cyfmac54591-pcie.bin \
+	cypress/cyfmac54591-pcie.clm_blob
 LINUX_FIRMWARE_ALL_LICENSE_FILES += LICENCE.broadcom_bcm43xx
 endif
 
