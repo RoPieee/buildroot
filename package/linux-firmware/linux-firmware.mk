@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-LINUX_FIRMWARE_VERSION = 20211027
+LINUX_FIRMWARE_VERSION = 20211216
 LINUX_FIRMWARE_SOURCE = linux-firmware-$(LINUX_FIRMWARE_VERSION).tar.gz
 LINUX_FIRMWARE_SITE = https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/snapshot
 LINUX_FIRMWARE_INSTALL_IMAGES = NO
@@ -645,6 +645,7 @@ LINUX_FIRMWARE_FILES += \
 	brcm/brcmfmac43569.bin \
 	brcm/brcmfmac43602-pcie.ap.bin \
 	brcm/brcmfmac43602-pcie.bin \
+	brcm/brcmfmac4330-sdio.Prowise-PT301.txt \
 	brcm/brcmfmac43340-sdio.meegopad-t08.txt \
 	brcm/brcmfmac43340-sdio.pov-tab-p1006w-data.txt \
 	brcm/brcmfmac43340-sdio.predia-basic.txt \
@@ -655,6 +656,7 @@ LINUX_FIRMWARE_FILES += \
 	brcm/brcmfmac43430-sdio.Hampoo-D2D3_Vi8A1.txt \
 	brcm/brcmfmac43430-sdio.MUR1DX.txt \
 	brcm/brcmfmac43430-sdio.raspberrypi,3-model-b.txt \
+	brcm/brcmfmac43455-sdio.acepc-t8.txt \
 	brcm/brcmfmac43455-sdio.raspberrypi,3-model-b-plus.txt \
 	brcm/brcmfmac43455-sdio.raspberrypi,4-model-b.txt \
 	cypress/cyfmac43012-sdio.bin \
