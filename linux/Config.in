@@ -125,7 +125,7 @@ endif
 
 config BR2_LINUX_KERNEL_VERSION
 	string
-	default "5.15.13" if BR2_LINUX_KERNEL_LATEST_VERSION
+	default "5.15.26" if BR2_LINUX_KERNEL_LATEST_VERSION
 	default "4.19.198-cip54" if BR2_LINUX_KERNEL_LATEST_CIP_VERSION
 	default "4.19.198-cip54-rt21" if BR2_LINUX_KERNEL_LATEST_CIP_RT_VERSION
 	default BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE \
@@ -411,9 +411,10 @@ config BR2_LINUX_KERNEL_INTREE_DTS_NAME
 config BR2_LINUX_KERNEL_CUSTOM_DTS_PATH
 	string "Out-of-tree Device Tree Source file paths"
 	help
-	  Path to the out-of-tree device tree source files.
-	  You can provide a list of dts paths to copy and
-	  build, separated by spaces.
+	  Paths to out-of-tree Device Tree Source (.dts) and Device Tree
+	  Source Include (.dtsi) files, separated by spaces. These files
+	  will be copied to the kernel sources and the .dts files will
+	  be compiled from there.
 
 config BR2_LINUX_KERNEL_DTB_KEEP_DIRNAME
 	bool "Keep the directory name of the Device Tree"
