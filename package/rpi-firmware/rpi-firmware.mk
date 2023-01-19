@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-RPI_FIRMWARE_VERSION = 3f20b832b27cd730deb6419b570f31a98167eef6
+RPI_FIRMWARE_VERSION = 4849b548c1ffda841481c54e62fff249ed00b32c
 RPI_FIRMWARE_SITE = $(call github,raspberrypi,firmware,$(RPI_FIRMWARE_VERSION))
 RPI_FIRMWARE_LICENSE = BSD-3-Clause
 RPI_FIRMWARE_LICENSE_FILES = boot/LICENCE.broadcom
@@ -73,6 +73,12 @@ define RPI_FIRMWARE_INSTALL_TARGET_LIB
 		$(TARGET_DIR)/usr/lib/libvcos.so
 	$(INSTALL) -D -m 0644 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/lib/libdebug_sym.so \
 		$(TARGET_DIR)/usr/lib/libdebug_sym.so
+	$(INSTALL) -D -m 0644 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/lib/libvchiq_arm.so \
+		$(TARGET_DIR)/usr/lib/libvchiq_arm.so
+	$(INSTALL) -D -m 0644 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/lib/libbcm_host.so \
+		$(TARGET_DIR)/usr/lib/libbcm_host.so
+	$(INSTALL) -D -m 0644 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/lib/libelftoolchain.so \
+		$(TARGET_DIR)/usr/lib/libelftoolchain.so
 endef
 endif
 
@@ -82,6 +88,10 @@ define RPI_FIRMWARE_INSTALL_TARGET_CMDS
 		$(TARGET_DIR)/usr/sbin/vcdbg
 	$(INSTALL) -D -m 0644 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/lib/libelftoolchain.so \
 		$(TARGET_DIR)/usr/lib/libelftoolchain.so
+	$(INSTALL) -D -m 0700 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/bin/tvservice \
+		$(TARGET_DIR)/usr/sbin/tvservice
+	$(INSTALL) -D -m 0700 $(@D)/$(if BR2_ARM_EABIHF,hardfp/)opt/vc/bin/vcgencmd \
+		$(TARGET_DIR)/usr/sbin/vcgencmd
 	$(RPI_FIRMWARE_INSTALL_TARGET_LIB)
 endef
 endif # INSTALL_VCDBG
