@@ -4,8 +4,8 @@
 #
 ################################################################################
 
-AVAHI_VERSION = 0.8
-AVAHI_SITE = https://github.com/lathiat/avahi/releases/download/v$(AVAHI_VERSION)
+AVAHI_VERSION = 6395c45bcd1210cbbb23fc92294fd61e968daaf2
+AVAHI_SITE = $(call github,lathiat,avahi,$(AVAHI_VERSION))
 AVAHI_LICENSE = LGPL-2.1+
 AVAHI_LICENSE_FILES = LICENSE
 AVAHI_CPE_ID_VENDOR = avahi
@@ -34,6 +34,7 @@ AVAHI_CONF_ENV = \
 # programs, we decided to disable their support to solve the circular
 # dependency.
 AVAHI_CONF_OPTS = \
+	--disable-shared \
 	--disable-qt3 \
 	--disable-qt4 \
 	--disable-qt5 \
@@ -51,6 +52,11 @@ AVAHI_CONF_OPTS = \
 	--with-avahi-group=avahi \
 	--with-autoipd-user=avahi \
 	--with-autoipd-group=avahi
+
+define AVAHI_RUN_AUTOGEN
+        cd $(@D) && PATH=$(BR_PATH) NOCONFIGURE=1 ./autogen.sh
+endef
+AVAHI_PRE_CONFIGURE_HOOKS += AVAHI_RUN_AUTOGEN
 
 AVAHI_DEPENDENCIES = host-pkgconf $(TARGET_NLS_DEPENDENCIES)
 
