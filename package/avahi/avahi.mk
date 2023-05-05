@@ -11,6 +11,7 @@ AVAHI_LICENSE_FILES = LICENSE
 AVAHI_CPE_ID_VENDOR = avahi
 AVAHI_SELINUX_MODULES = avahi
 AVAHI_INSTALL_STAGING = YES
+BR_COMPILER_PARANOID_UNSAFE_PATH=
 
 # CVE-2021-26720 is an issue in avahi-daemon-check-dns.sh, which is
 # part of the Debian packaging and not part of upstream avahi
@@ -34,7 +35,6 @@ AVAHI_CONF_ENV = \
 # programs, we decided to disable their support to solve the circular
 # dependency.
 AVAHI_CONF_OPTS = \
-	--disable-shared \
 	--disable-qt3 \
 	--disable-qt4 \
 	--disable-qt5 \
