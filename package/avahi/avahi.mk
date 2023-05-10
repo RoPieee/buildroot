@@ -11,7 +11,6 @@ AVAHI_LICENSE_FILES = LICENSE
 AVAHI_CPE_ID_VENDOR = avahi
 AVAHI_SELINUX_MODULES = avahi
 AVAHI_INSTALL_STAGING = YES
-BR_COMPILER_PARANOID_UNSAFE_PATH=
 
 # CVE-2021-26720 is an issue in avahi-daemon-check-dns.sh, which is
 # part of the Debian packaging and not part of upstream avahi
@@ -57,6 +56,7 @@ define AVAHI_RUN_AUTOGEN
         cd $(@D) && PATH=$(BR_PATH) NOCONFIGURE=1 ./autogen.sh
 endef
 AVAHI_PRE_CONFIGURE_HOOKS += AVAHI_RUN_AUTOGEN
+AVAHI_PRE_CONFIGURE_HOOKS += LIBTOOL_PATCH_HOOK
 
 AVAHI_DEPENDENCIES = host-pkgconf $(TARGET_NLS_DEPENDENCIES)
 
