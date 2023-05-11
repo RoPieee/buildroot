@@ -1,0 +1,22 @@
+diff --color -Naur a/deps/v8/src/base/logging.h b/deps/v8/src/base/logging.h
+--- a/deps/v8/src/base/logging.h	2022-11-04 12:22:05.000000000 +0100
++++ b/deps/v8/src/base/logging.h	2023-03-29 12:09:59.028160736 +0200
+@@ -5,6 +5,7 @@
+ #ifndef V8_BASE_LOGGING_H_
+ #define V8_BASE_LOGGING_H_
+ 
++#include <cstdint>
+ #include <cstring>
+ #include <sstream>
+ #include <string>
+diff --color -Naur a/deps/v8/src/inspector/v8-string-conversions.h b/deps/v8/src/inspector/v8-string-conversions.h
+--- a/deps/v8/src/inspector/v8-string-conversions.h	2022-11-04 12:22:06.000000000 +0100
++++ b/deps/v8/src/inspector/v8-string-conversions.h	2023-03-29 12:10:23.983968424 +0200
+@@ -5,6 +5,7 @@
+ #ifndef V8_INSPECTOR_V8_STRING_CONVERSIONS_H_
+ #define V8_INSPECTOR_V8_STRING_CONVERSIONS_H_
+ 
++#include <cstdint>
+ #include <string>
+ 
+ // Conversion routines between UT8 and UTF16, used by string-16.{h,cc}. You may
