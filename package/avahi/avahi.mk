@@ -4,8 +4,8 @@
 #
 ################################################################################
 
-AVAHI_VERSION = e5b0badfc725b7fa9e6069b6a3d5f278d1b96113
-AVAHI_SITE = $(call github,lathiat,avahi,$(AVAHI_VERSION))
+AVAHI_VERSION = ddcc3bc3f928ccfc885b6b3f89dba9b67cb3a82e
+AVAHI_SITE = $(call github,avahi,avahi,$(AVAHI_VERSION))
 AVAHI_LICENSE = LGPL-2.1+
 AVAHI_LICENSE_FILES = LICENSE
 AVAHI_CPE_ID_VENDOR = avahi
