@@ -63,7 +63,7 @@ AVAHI_DEPENDENCIES = host-pkgconf $(TARGET_NLS_DEPENDENCIES)
 AVAHI_CFLAGS = $(TARGET_CFLAGS)
 
 ifeq ($(BR2_PACKAGE_SYSTEMD),y)
-AVAHI_CONF_OPTS += --with-systemdsystemunitdir=/usr/lib/systemd/system
+AVAHI_CONF_OPTS += --with-systemdsystemunitdir=/usr/lib/systemd/system --runstatedir=/run
 else
 AVAHI_CONF_OPTS += --with-systemdsystemunitdir=no
 AVAHI_CFLAGS += -DDISABLE_SYSTEMD
