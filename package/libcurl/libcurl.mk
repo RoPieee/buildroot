@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-LIBCURL_VERSION = 8.5.0
+LIBCURL_VERSION = 8.6.0
 LIBCURL_SOURCE = curl-$(LIBCURL_VERSION).tar.xz
 LIBCURL_SITE = https://curl.se/download
 LIBCURL_DEPENDENCIES = host-pkgconf \
@@ -31,7 +31,8 @@ LIBCURL_CONF_OPTS = \
 	--disable-curldebug \
 	--disable-libcurl-option \
 	--disable-ldap \
-	--disable-ldaps
+	--disable-ldaps \
+	--without-libpsl
 
 ifeq ($(BR2_TOOLCHAIN_HAS_THREADS),y)
 LIBCURL_CONF_OPTS += --enable-threaded-resolver
