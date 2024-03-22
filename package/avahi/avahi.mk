@@ -4,8 +4,8 @@
 #
 ################################################################################
 
-AVAHI_VERSION = 0.8
-AVAHI_SITE = https://github.com/lathiat/avahi/releases/download/v$(AVAHI_VERSION)
+AVAHI_VERSION = 709e60fd67a19bb529045d20c0e6e8443fd20acf
+AVAHI_SITE = $(call github,avahi,avahi,$(AVAHI_VERSION))
 AVAHI_LICENSE = LGPL-2.1+
 AVAHI_LICENSE_FILES = LICENSE
 AVAHI_CPE_ID_VENDOR = avahi
@@ -52,12 +52,19 @@ AVAHI_CONF_OPTS = \
 	--with-autoipd-user=avahi \
 	--with-autoipd-group=avahi
 
+define AVAHI_RUN_AUTOGEN
+        cd $(@D) && PATH=$(BR_PATH) NOCONFIGURE=1 ./autogen.sh
+endef
+
+AVAHI_PRE_CONFIGURE_HOOKS += AVAHI_RUN_AUTOGEN
+AVAHI_PRE_CONFIGURE_HOOKS += LIBTOOL_PATCH_HOOK
+
 AVAHI_DEPENDENCIES = host-pkgconf $(TARGET_NLS_DEPENDENCIES)
 
 AVAHI_CFLAGS = $(TARGET_CFLAGS)
 
 ifeq ($(BR2_PACKAGE_SYSTEMD),y)
-AVAHI_CONF_OPTS += --with-systemdsystemunitdir=/usr/lib/systemd/system
+AVAHI_CONF_OPTS += --with-systemdsystemunitdir=/usr/lib/systemd/system --runstatedir=/run
 else
 AVAHI_CONF_OPTS += --with-systemdsystemunitdir=no
 AVAHI_CFLAGS += -DDISABLE_SYSTEMD
