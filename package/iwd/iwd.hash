@@ -1,5 +1,5 @@
 # From https://mirrors.edge.kernel.org/pub/linux/network/wireless/sha256sums.asc
-sha256  21f5a8e29a41ff301045f36eed97a4e540262adfdc003db847fe0c7dce874e15  iwd-3.2.tar.xz
+sha256  c556a5a5376270af68940e04e26765026fbbbe4941668317c274c91042611cdf  iwd-3.8.tar.xz
 
 # License files
 sha256  ec60b993835e2c6b79e6d9226345f4e614e686eb57dc13b6420c15a33a8996e5  COPYING
