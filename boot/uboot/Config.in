@@ -85,11 +85,7 @@ endif
 
 config BR2_TARGET_UBOOT_VERSION
 	string
-<<<<<<< HEAD
-	default "2025.01"	if BR2_TARGET_UBOOT_LATEST_VERSION
-=======
 	default "2025.10"	if BR2_TARGET_UBOOT_LATEST_VERSION
->>>>>>> 128c26f287 (boot/uboot: bump to version 2025.10)
 	default BR2_TARGET_UBOOT_CUSTOM_VERSION_VALUE \
 		if BR2_TARGET_UBOOT_CUSTOM_VERSION
 	default "custom"	if BR2_TARGET_UBOOT_CUSTOM_TARBALL
