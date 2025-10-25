@@ -340,11 +340,7 @@ config BR2_TARGET_UBOOT_USE_BINMAN
 	help
 	  Use binman tool for generation and signing of boot images.
 
-<<<<<<< HEAD
-	  https://docs.u-boot.org/en/v2025.01/develop/package/binman.html
-=======
 	  https://docs.u-boot.org/en/v2025.10/develop/package/binman.html
->>>>>>> 128c26f287 (boot/uboot: bump to version 2025.10)
 
 menu "U-Boot binary format"
 
