@@ -46,13 +46,6 @@ else
 MPD_CONF_OPTS += -Dicu=disabled
 endif
 
-ifeq ($(BR2_PACKAGE_JSON_FOR_MODERN_CPP),y)
-MPD_DEPENDENCIES += json-for-modern-cpp
-MPD_CONF_OPTS += -Dnlohmann_json=enabled
-else
-MPD_CONF_OPTS += -Dnlohmann_json=disabled
-endif
-
 ifeq ($(BR2_PACKAGE_MPD_ALSA),y)
 MPD_DEPENDENCIES += alsa-lib
 MPD_CONF_OPTS += -Dalsa=enabled
