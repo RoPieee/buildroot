@@ -4,8 +4,8 @@
 #
 ################################################################################
 
-MPD_VERSION_MAJOR = 0.23
-MPD_VERSION = $(MPD_VERSION_MAJOR).17
+MPD_VERSION_MAJOR = 0.24
+MPD_VERSION = $(MPD_VERSION_MAJOR).6
 MPD_SOURCE = mpd-$(MPD_VERSION).tar.xz
 MPD_SITE = https://www.musicpd.org/download/mpd/$(MPD_VERSION_MAJOR)
 MPD_DEPENDENCIES = host-pkgconf boost fmt
@@ -44,13 +44,6 @@ MPD_DEPENDENCIES += icu
 MPD_CONF_OPTS += -Dicu=enabled
 else
 MPD_CONF_OPTS += -Dicu=disabled
-endif
-
-ifeq ($(BR2_PACKAGE_YAJL),y)
-MPD_DEPENDENCIES += yajl
-MPD_CONF_OPTS += -Dyajl=enabled
-else
-MPD_CONF_OPTS += -Dyajl=disabled
 endif
 
 ifeq ($(BR2_PACKAGE_MPD_ALSA),y)
@@ -285,12 +278,6 @@ MPD_DEPENDENCIES += libsidplay2
 MPD_CONF_OPTS += -Dsidplay=enabled
 else
 MPD_CONF_OPTS += -Dsidplay=disabled
-endif
-
-ifeq ($(BR2_PACKAGE_MPD_SOUNDCLOUD),y)
-MPD_CONF_OPTS += -Dsoundcloud=enabled
-else
-MPD_CONF_OPTS += -Dsoundcloud=disabled
 endif
 
 ifeq ($(BR2_PACKAGE_MPD_SQLITE),y)
