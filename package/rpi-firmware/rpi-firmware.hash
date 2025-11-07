@@ -1,3 +1,7 @@
 # Locally computed
+<<<<<<< HEAD
 sha256  812cb64617d6ffbc76f9b8dce8237b31159a1216b31845faec1bb75b6b6b291f  rpi-firmware-063bcab6c8a90efb0d19f69d88cbbc7ec79cab68.tar.gz
+=======
+sha256  d30428b6a98d17f69faf35dc1b8f9001478f9ae5406225aa52161aa7be86d059  rpi-firmware-e57538c91b473d23f98bf41fcffdc61b4198a632.tar.gz
+>>>>>>> 352e31c9b0 (bump package rpi-firmware)
 sha256  c7283ff51f863d93a275c66e3b4cb08021a5dd4d8c1e7acc47d872fbe52d3d6b  boot/LICENCE.broadcom
