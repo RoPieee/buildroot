@@ -11,4 +11,4 @@ LIBUPNPP_LICENSE_FILES = COPYING
 LIBUPNPP_INSTALL_STAGING = YES
 LIBUPNPP_DEPENDENCIES = host-pkgconf expat libcurl libnpupnp
 
-$(eval $(autotools-package))
+$(eval $(meson-package))
