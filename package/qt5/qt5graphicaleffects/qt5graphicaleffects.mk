@@ -4,9 +4,9 @@
 #
 ################################################################################
 
-QT5GRAPHICALEFFECTS_VERSION = 2c39e673d6c15a84dcc7882d3772fa04cc79f9ed
-QT5GRAPHICALEFFECTS_SITE = $(QT5_SITE)/qtgraphicaleffects/-/archive/$(QT5GRAPHICALEFFECTS_VERSION)
-QT5GRAPHICALEFFECTS_SOURCE = qtgraphicaleffects-$(QT5GRAPHICALEFFECTS_VERSION).tar.bz2
+QT5GRAPHICALEFFECTS_VERSION = $(shell git ls-remote git://code.qt.io/qt/qtgraphicaleffects.git 5.15 | awk '{ print $$1 }')
+QT5GRAPHICALEFFECTS_SITE = $(QT5_SITE)/qtgraphicaleffects.git
+QT5GRAPHICALEFFECTS_SITE_METHOD = git
 QT5GRAPHICALEFFECTS_DEPENDENCIES = qt5declarative
 QT5GRAPHICALEFFECTS_INSTALL_STAGING = YES
 QT5GRAPHICALEFFECTS_SYNC_QT_HEADERS = YES

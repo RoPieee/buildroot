@@ -4,9 +4,9 @@
 #
 ################################################################################
 
-QT5DECLARATIVE_VERSION = 50c8def854806485d66aabcf6918e8b987032e55
-QT5DECLARATIVE_SITE = $(QT5_SITE)/qtdeclarative/-/archive/$(QT5DECLARATIVE_VERSION)
-QT5DECLARATIVE_SOURCE = qtdeclarative-$(QT5DECLARATIVE_VERSION).tar.bz2
+QT5DECLARATIVE_VERSION = $(shell git ls-remote git://code.qt.io/qt/qtdeclarative.git 5.15 | awk '{ print $$1 }')
+QT5DECLARATIVE_SITE = $(QT5_SITE)/qtdeclarative.git
+QT5DECLARATIVE_SITE_METHOD = git
 QT5DECLARATIVE_INSTALL_STAGING = YES
 QT5DECLARATIVE_SYNC_QT_HEADERS = YES
 

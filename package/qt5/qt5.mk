@@ -4,9 +4,9 @@
 #
 ################################################################################
 
-QT5_VERSION_MAJOR = 5.15
-QT5_VERSION = $(QT5_VERSION_MAJOR).14
-QT5_SITE = https://invent.kde.org/qt/qt
+QT5_VERSION = $(shell git ls-remote git://code.qt.io/qt/qt5.git 5.15 | awk '{ print $$1 }')
+QT5_SITE_METHOD = git
+QT5_SITE = https://code.qt.io/qt
 
 include $(sort $(wildcard package/qt5/*/*.mk))
 
