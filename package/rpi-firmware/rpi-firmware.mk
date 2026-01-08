@@ -5,11 +5,7 @@
 ################################################################################
 
 # Please keep in sync with configs/raspberrypi*_deconfig
-<<<<<<< HEAD
-RPI_FIRMWARE_VERSION = 063bcab6c8a90efb0d19f69d88cbbc7ec79cab68
-=======
 RPI_FIRMWARE_VERSION = e57538c91b473d23f98bf41fcffdc61b4198a632
->>>>>>> 352e31c9b0 (bump package rpi-firmware)
 RPI_FIRMWARE_SITE = $(call github,raspberrypi,firmware,$(RPI_FIRMWARE_VERSION))
 RPI_FIRMWARE_LICENSE = BSD-3-Clause
 RPI_FIRMWARE_LICENSE_FILES = boot/LICENCE.broadcom
