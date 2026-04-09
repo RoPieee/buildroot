@@ -1,0 +1,15 @@
+diff --color -Naur u-boot-2026.04.org/board/raspberrypi/rpi/rpi.c u-boot-2026.04.new/board/raspberrypi/rpi/rpi.c
+--- u-boot-2026.04.org/board/raspberrypi/rpi/rpi.c	2026-04-06 19:59:18.000000000 +0200
++++ u-boot-2026.04.new/board/raspberrypi/rpi/rpi.c	2026-04-09 11:25:15.798334890 +0200
+@@ -195,6 +195,11 @@
+ 		FDTFILES(DTB_DIR "bcm2711-rpi-cm4.dtb"),
+ 		true,
+ 	},
++	[0x15] = {
++		"Compute Module 4S",
++		FDTFILES(DTB_DIR "bcm2711-rpi-cm4s.dtb"),
++		true,
++	},
+ 	[0x17] = {
+ 		"5 Model B",
+ 		FDTFILES(
