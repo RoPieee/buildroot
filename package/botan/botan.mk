@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-BOTAN_VERSION = 3.5.0
+BOTAN_VERSION = 3.9.0
 BOTAN_SOURCE = Botan-$(BOTAN_VERSION).tar.xz
 BOTAN_SITE = http://botan.randombit.net/releases
 BOTAN_LICENSE = BSD-2-Clause
@@ -89,18 +89,6 @@ endif
 ifeq ($(BR2_PACKAGE_ZLIB),y)
 BOTAN_DEPENDENCIES += zlib
 BOTAN_CONF_OPTS += --with-zlib
-endif
-
-ifeq ($(BR2_POWERPC_CPU_HAS_ALTIVEC),)
-BOTAN_CONF_OPTS += --disable-altivec
-endif
-
-ifeq ($(BR2_ARM_CPU_HAS_NEON),)
-BOTAN_CONF_OPTS += --disable-neon
-endif
-
-ifeq ($(BR2_SOFT_FLOAT),y)
-BOTAN_CONF_OPTS += --disable-neon
 endif
 
 define BOTAN_CONFIGURE_CMDS
