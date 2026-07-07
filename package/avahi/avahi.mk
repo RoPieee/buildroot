@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-AVAHI_VERSION = 5b680ad525ad1434f3a37cf4eea298772a0c0dc8
+AVAHI_VERSION = d9e7d0af5b5c56be2f90107535f819d71d1d53ca
 AVAHI_SITE = $(call github,avahi,avahi,$(AVAHI_VERSION))
 AVAHI_LICENSE = LGPL-2.1+
 AVAHI_LICENSE_FILES = LICENSE
