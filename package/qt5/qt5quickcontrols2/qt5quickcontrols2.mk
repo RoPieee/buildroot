@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-QT5QUICKCONTROLS2_VERSION = $(shell git ls-remote https://code.qt.io/qt/qtquickcontrols2.git 5.15 | awk '{ print $$1 }')
+QT5QUICKCONTROLS2_VERSION = $(shell $(BR2_EXTERNAL_BASEFLOW_BR_PATH)/scripts/git-ls-remote-retry https://code.qt.io/qt/qtquickcontrols2.git 5.15)
 QT5QUICKCONTROLS2_SITE = $(QT5_SITE)/qtquickcontrols2.git
 QT5QUICKCONTROLS2_SITE_METHOD = git
 QT5QUICKCONTROLS2_DEPENDENCIES = qt5declarative

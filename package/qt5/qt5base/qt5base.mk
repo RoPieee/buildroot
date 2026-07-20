@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-QT5BASE_VERSION = $(shell git ls-remote https://code.qt.io/qt/qtbase.git 5.15 | awk '{ print $$1 }')
+QT5BASE_VERSION = $(shell $(BR2_EXTERNAL_BASEFLOW_BR_PATH)/scripts/git-ls-remote-retry https://code.qt.io/qt/qtbase.git 5.15)
 QT5BASE_SITE =  $(QT5_SITE)/qtbase.git
 QT5BASE_SITE_METHOD = git
 QT5BASE_CPE_ID_VENDOR = qt

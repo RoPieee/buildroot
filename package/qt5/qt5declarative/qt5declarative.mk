@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-QT5DECLARATIVE_VERSION = $(shell git ls-remote https://code.qt.io/qt/qtdeclarative.git 5.15 | awk '{ print $$1 }')
+QT5DECLARATIVE_VERSION = $(shell $(BR2_EXTERNAL_BASEFLOW_BR_PATH)/scripts/git-ls-remote-retry https://code.qt.io/qt/qtdeclarative.git 5.15)
 QT5DECLARATIVE_SITE = $(QT5_SITE)/qtdeclarative.git
 QT5DECLARATIVE_SITE_METHOD = git
 QT5DECLARATIVE_INSTALL_STAGING = YES
